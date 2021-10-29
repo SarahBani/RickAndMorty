@@ -1,0 +1,164 @@
+﻿@import "../../_globals";
+@import "../../colors";
+
+.CharacterProfile{
+
+    > div:first-of-type {
+        position: relative;
+        display: flex;
+        word-wrap: break-word;
+        background-color: $dark-green;
+        background-clip: border-box;
+        border: 1px;
+        border-radius: 0.25rem;
+        padding: 20px;
+        
+        > section {    
+            overflow: hidden;  
+            padding-right: 30px;
+            max-width: 30%;
+
+            > img {
+                text-align: center;
+                height: auto;
+                @include border($dark, 8px);
+            }
+
+            > div {
+                color: #FFF; 
+                display: flex;
+                flex-direction: column;
+                padding: 0.75rem;
+            
+                h1 {
+                    text-align: center;
+                    color: #000;
+                    font-weight: bold;
+                }
+
+                > strong {
+                    color: $yellow;
+                    text-align: center;
+
+                    &::before {
+                        border-radius: 1em;
+                        content: " ";
+                        display: inline-block;
+                        height: 0.35em;
+                        margin-right: 6px;
+                        width: 0.35em;
+                    }
+
+                    &.alive::before
+                    {
+                        background-color: $green;
+                    }
+
+                    &.dead::before
+                    {
+                        background-color: $red;
+                    }
+
+                    &.unknown::before
+                    {
+                        background-color: $medium-gray;
+                    } 
+                }                 
+            
+                > span {
+                    color: $light-purple; 
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-decoration: none;
+                    padding-left: 10px;
+                    
+                }
+
+                > ul > li {
+                    color: $light-pink; 
+                    font-size: 16px;
+                }
+            }    
+        }
+    }
+
+    button {
+        padding: 10px 50px;
+    }
+
+}
+
+@media(min-width: 700px) and (max-width:899px) {
+    .CharacterProfile{
+
+        > div:first-of-type {
+            padding: 10px;
+            
+            section {      
+                padding-left: 5px;
+    
+                > div {             
+                
+                    text-align: left;
+            
+                    h1 {
+                        font-size: 22px;
+                    }
+
+                    > strong {
+                        font-size: 18px;
+
+                    }
+
+                    > span {
+                        font-size: 16px;
+                        padding-left: 5px;
+                        
+                    }
+    
+                    > ul > li {
+                        font-size: 16px;
+                    }
+                }    
+            }
+        }
+    
+    }
+}
+
+@media(max-width: 699px) { 
+
+    .CharacterProfile{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        > div:first-of-type {
+            display: flex;
+            flex-direction: column;
+            word-wrap: break-word;
+            padding: 10px;
+            
+            section {      
+                max-width: 100%;
+                padding: 0;
+    
+                > div {             
+                
+                    text-align: left;
+
+                    > span {
+                        font-size: 16px;
+                        padding: 0;
+                        
+                    }
+    
+                    > ul > li {
+                        font-size: 16px;
+                    }
+                }    
+            }
+        }
+    
+    }
+}

@@ -1,0 +1,118 @@
+@import "../../_globals";
+@import "../../colors";
+
+.CharacterItem { 
+    padding: 10px;      
+
+    > article {     
+        background-color: $dark-green;
+        border-radius: 5px;
+        box-shadow: 2px 2px 4px $dark;
+        overflow: visible;
+        display: flex;
+        
+        > img {
+            cursor: pointer; 
+            margin-right: 5px;   
+            width: 250px; 
+            height: auto;
+            @include border($dark, 5px);
+        }
+        
+        > section{
+            font-size: 20px;
+            color:#FFF;
+
+            > div {
+                flex: 1 1 0%;
+                display: flex;
+                flex-direction: column;
+                padding: 0.75rem;
+
+                > strong {
+                    color: $yellow;
+                    padding-left: 10px; 
+
+                    &::before {
+                        border-radius: 1em;
+                        content: " ";
+                        display: inline-block;
+                        height: 0.35em;
+                        margin-right: 6px;
+                        width: 0.35em;
+                    }
+
+                    &.alive::before
+                    {
+                        background-color: $green;
+                    }
+    
+                    &.dead::before
+                    {
+                        background-color: $red;
+                    }
+    
+                    &.unknown::before
+                    {
+                        background-color: $medium-gray;
+                    }
+                }          
+
+            } 
+            
+            span {
+                color: $light-purple; 
+                font-size: 18px;
+                font-weight: bold;
+                text-decoration: none;
+                padding-left: 10px;
+            }
+
+            h2 > a {
+                color: $light-blue; 
+                font-size: 24px;
+                font-weight: bold;
+                padding-left: 0;
+            }           
+        }
+    }
+}
+
+@media(max-width:499px) { 
+    .CharacterItem { 
+        padding: 5px;
+
+        article {     
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+
+            > img {  
+                height: 300px; 
+                margin: auto;
+            }
+
+            > section{
+                font-size: 18px;
+    
+                > div {
+    
+                    > strong {
+                        padding-left: 0;
+                    }          
+    
+                } 
+                
+                span { 
+                    font-size: 16px;
+                    padding-left: 0;
+                }
+    
+                h2 > a {
+                    font-size: 22px;
+                }           
+            }
+        }
+    }
+}
+

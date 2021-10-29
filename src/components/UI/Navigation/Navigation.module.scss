@@ -1,0 +1,67 @@
+﻿@import  '../../colors.scss';
+
+@mixin item-border($selected) {
+    @if($selected) {
+        border: {
+            bottom: 4px solid $light-purple;
+        }
+    }
+    @else {
+        border: {
+            bottom: 4px solid transparent;
+        }
+    }
+}
+
+.Navigation {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    z-index: 100;
+    position: absolute;    
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        align-items: center;
+        height: 120px;
+        padding: 10px;
+
+        > li {     
+        
+            &:first-of-type {
+                float: left;                     
+    
+                img {
+                    height: 100px;
+                }  
+            }
+
+            &:not(:first-of-type) {
+                font-size: 30px;
+                padding: 25px;
+                float: right;
+
+                > a {       
+                    color: $light-blue;
+                    text-decoration: none;
+                    @include item-border(false);
+    
+                    &:hover,
+                    &:active,
+                    &.active {
+                        font-weight: 400;
+                        color: $light-purple;
+                        @include item-border(true);
+                    }
+    
+                }
+            }
+            
+        }    
+            
+    }
+}
