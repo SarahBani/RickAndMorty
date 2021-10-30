@@ -77,38 +77,38 @@ export const CharacterProfile: FC = () => {
 
     const characterContent = character && (
         <div>
-        <section>
-            <img src={character?.image} alt="avatar" className="img-response" />
-            <div>   
-                <h1>{character?.name}</h1>                 
-                <strong className={classes[character?.status.toLowerCase()]}>
-                        {character?.status} - {character?.species}
-                </strong>
-            </div>
-        </section>
-        <section>   
-            <div>
-                <b>Gender: </b>
-                <span>{character?.gender}</span>
-            </div> 
-            <div>
-                <b>Origin: </b>
-                <span>{originContent}</span>
-            </div>   
-            <div>
-                <b>Last known location: </b>
-                <span>{locationContent}</span>
-            </div>   
-        </section>
-        <section>                    
-            <div>
-                <b>Episodes: </b>
-                <ul>
-                {episodeNames}
-                </ul>
-            </div> 
-        </section>
-    </div>
+            <section>
+                <img src={character?.image} alt="avatar" className="img-response" />
+                <div>   
+                    <h1>{character?.name}</h1>                 
+                    <strong className={classes[character?.status.toLowerCase()]}>
+                            {character?.status} - {character?.species}
+                    </strong>
+                </div>
+            </section>
+            <section>   
+                <div>
+                    <b>Gender: </b>
+                    <span>{character?.gender}</span>
+                </div> 
+                <div>
+                    <b>Origin: </b>
+                    <span>{originContent}</span>
+                </div>   
+                <div>
+                    <b>Last known location: </b>
+                    <span>{locationContent}</span>
+                </div>   
+            </section>
+            <section>                    
+                <div>
+                    <b>Episodes: </b>
+                    <ul>
+                    {episodeNames}
+                    </ul>
+                </div> 
+            </section>
+        </div>
     );
 
    return (

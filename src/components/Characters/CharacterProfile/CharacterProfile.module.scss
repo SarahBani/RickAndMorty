@@ -1,5 +1,5 @@
-﻿@import "../../_globals";
-@import "../../colors";
+﻿@import "../../../_globals";
+@import "../../../colors";
 
 .CharacterProfile{
 
@@ -67,7 +67,7 @@
             
                 > span {
                     color: $light-purple; 
-                    font-size: 18px;
+                    font-size: 19px;
                     font-weight: bold;
                     text-decoration: none;
                     padding-left: 10px;
@@ -76,7 +76,8 @@
 
                 > ul > li {
                     color: $light-pink; 
-                    font-size: 16px;
+                    font-weight: bold;
+                    font-size: 17px;
                 }
             }    
         }
@@ -84,18 +85,100 @@
 
     button {
         padding: 10px 50px;
+        margin: 5px;
     }
 
 }
 
-@media(min-width: 700px) and (max-width:899px) {
+@media(min-width: 800px) and (max-width:999px) {
     .CharacterProfile{
 
         > div:first-of-type {
             padding: 10px;
-            
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+                        
             section {      
-                padding-left: 5px;
+                padding: 5px;
+                overflow: visible;
+                flex: 1;
+                max-width: 40%;
+
+                &:first-of-type { 
+                    flex: 40%; 
+                }
+
+                &:not(:first-of-type) { 
+                    flex: 30%; 
+                }
+
+                > img {
+                    width: 250px;
+                    text-align: center;
+                    height: auto;
+                    @include border($dark, 8px);
+                }
+    
+                > div {             
+                
+                    text-align: left;
+            
+                    h1 {
+                        font-size: 22px;
+                    }
+
+                    > strong {
+                        font-size: 18px;
+
+                    }
+
+                    > span {
+                        font-size: 16px;
+                        padding-left: 5px;
+                        
+                    }
+    
+                    > ul > li {
+                        font-size: 16px;
+                    }
+                }    
+            }
+        }
+    
+    }
+}
+
+
+@media(min-width: 700px) and (max-width:799px) {
+    .CharacterProfile{
+
+        > div:first-of-type {
+            padding: 5px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+                        
+            section {      
+                padding: 5px;
+                overflow: visible;
+                flex: 1;
+                max-width: 50%;
+
+                &:first-of-type { 
+                    flex: 50%; 
+                }
+
+                &:not(:first-of-type) { 
+                    flex: 100%; 
+                }
+
+                > img {
+                    width: 250px;
+                    text-align: center;
+                    height: auto;
+                    @include border($dark, 8px);
+                }
     
                 > div {             
                 
@@ -130,8 +213,6 @@
 
     .CharacterProfile{
         text-align: center;
-        display: flex;
-        flex-direction: column;
 
         > div:first-of-type {
             display: flex;

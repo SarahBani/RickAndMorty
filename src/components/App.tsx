@@ -6,7 +6,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 
-import './custom.scss'
+import '../custom.scss'
 import { Navigation } from './UI/Navigation/Navigation';
 import { Home } from './Home/Home';
 import { About } from './About/About';

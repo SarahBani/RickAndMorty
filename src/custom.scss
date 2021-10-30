@@ -9,12 +9,12 @@ $shadow-item: 0 0 1px;
 
 @font-face {
   font-family: 'Harrington';
-  src: local('Harrington'), url('/fonts/HARRINGT.TTF') format('truetype');
+  src: url('./fonts/HARRINGT.TTF') format('truetype');
 }
 
 body {
   margin: 0;
-  // font-family: -apple-system, BlinkMacSystemFont, 'Harrington', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Harrington', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: $medium-green;

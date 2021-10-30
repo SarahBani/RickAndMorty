@@ -12,5 +12,5 @@
 	<li><em>JavaScript / ES6</em></li>
 	<li><em>HTML 5</em></li>
 	<li><em>Sass / SCSS</em></li>
-	<li><em>Bootstrap 4.6.0</em></li>
+	<li><em>Bootstrap 5.1.3</em></li>
 </ul>
