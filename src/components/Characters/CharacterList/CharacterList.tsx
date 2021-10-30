@@ -37,9 +37,9 @@ export const CharacterList: FC = () => {
     }, []);
 
     useEffect(() => {
-        // if (characters.length === 0) {
+        if (characters.length === 0) {
             dispatch(actions.fetchCharacters(pageNo));
-        // }
+        }
     }, [pageNo]);
     
     const changePageHandler = useCallback((no: number) => {

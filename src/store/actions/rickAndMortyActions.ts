@@ -49,32 +49,4 @@ export const setEpisodes = (episodes: Episode[]) => {
         type: actionTypes.SET_EPISODES,
         episodes: episodes
     };
-};
-
-export const fetchLocation = (id: number) => {
-    return {
-        type: actionTypes.FETCH_LOCATION,
-        id: id
-    };
-};
-
-export const setLocation = (location: Location) => {
-    return {
-        type: actionTypes.SET_LOCATION,
-        location: location
-    };
-};
-
-// export const fetchEpisode = (id: number) => {
-//     return {
-//         type: actionTypes.FETCH_EPISODE,
-//         id: id
-//     };
-// };
-
-// export const setEpisode = (episode: Episode) => {
-//     return {
-//         type: actionTypes.SET_EPISODE,
-//         episode: episode
-//     };
-// };
+};;

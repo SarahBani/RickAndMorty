@@ -10,13 +10,14 @@ import { Character } from "../../../models/Character.model";
 import { Location } from "../../../models/Location.model";
 import { Episode } from "../../../models/Episode.model";
 import { getIdFromUrl } from "../../../shared/utility";
+import withErrorHandler from "../../../hoc/withErrorHandler/withErrorHandler";
 
 interface StoreProps {
     character: Character,
     episodes: Episode[]
 };
 
-export const CharacterProfile: FC = () => {
+const CharacterProfile: FC = () => {
     
     const { character, episodes }: StoreProps =
         useSelector((state: AppState) => ({
@@ -39,9 +40,7 @@ export const CharacterProfile: FC = () => {
     }, []);
 
     useEffect(() => {
-        // if (!character || character.id !== id) {
         dispatch(actions.fetchCharacter(id));
-        // }
     }, [id]);
 
     const getLocationContent = useCallback((location: Location) => 
@@ -76,7 +75,7 @@ export const CharacterProfile: FC = () => {
     }, [setRedirect]);
 
     const characterContent = character && (
-        <div>
+        <article>
             <section>
                 <img src={character?.image} alt="avatar" className="img-response" />
                 <div>   
@@ -108,13 +107,13 @@ export const CharacterProfile: FC = () => {
                     </ul>
                 </div> 
             </section>
-        </div>
+        </article>
     );
 
    return (
         <div className={["container", classes.CharacterProfile].join(' ')}>
-            {redirect}
-            {characterContent}
+            {redirect}  
+                {characterContent}
             <div className="text-center">
                 <button className="btn btn-dark" type="button" onClick={cancelHandler}>
                     Back
@@ -123,3 +122,5 @@ export const CharacterProfile: FC = () => {
         </div>
     );
 };
+
+export default withErrorHandler(CharacterProfile);

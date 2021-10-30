@@ -4,7 +4,7 @@ import * as actions from '../actions/rickAndMortyActions';
 import * as commonActions from '../actions/commonActions';
 import { ResponseGenerator } from '../../models/ResponseGenerator.model';
 import axiosInstance from '../../shared/axios-instance';
-import { getHeaders, getIdFromUrl } from '../../shared/utility';
+import { getHeaders } from '../../shared/utility';
 import { ResponseData } from '../../models/ResponseData.model';
 import { Character } from '../../models/Character.model';
 import { Location } from '../../models/Location.model';
@@ -36,7 +36,7 @@ export function* fetchCharactersSaga(payload: ReturnType<typeof actions.fetchCha
 export function* fetchCharacterSaga(payload: ReturnType<typeof actions.fetchCharacter>) {
     yield put(commonActions.showLoader());    
     try {
-        const response: ResponseGenerator = yield axiosInstance.get('/character/' + payload.id,
+        const response: ResponseGenerator = yield axiosInstance.get('/character2/' + payload.id,
         {
             headers: getHeaders()
         });
@@ -81,34 +81,6 @@ function* fetchLocationSaga(url: string)
     }
     return null;
 }
-
-// function* fetchEpisodeNameSaga(id: number)
-// {
-//     const response: ResponseGenerator = yield axiosInstance.get('/episode/' + id,
-//     {
-//         headers: getHeaders()
-//     });
-//     if (response?.status === 200) {
-//         return (response.data as Episode).name;
-//     }
-//     return null;
-// }
-
-// export function* fetchLocationSaga(payload: ReturnType<typeof actions.fetchLocation>) {
-//     yield put(commonActions.showLoader());
-//     try {
-//         const response: ResponseGenerator = yield axiosInstance.get('/character/' + payload.id,
-//         {
-//             headers: getHeaders()
-//         });
-//         if (response?.status === 200) {
-//             yield put(actions.setCharacters(response.data));
-//         }
-//         yield put(commonActions.hideLoader());
-//     } catch (error: any) {
-//         yield put(commonActions.raiseError(error));
-//     }
-// }
 
 export function* fetchEpisodesSaga(payload: ReturnType<typeof actions.fetchEpisodes>) {
     yield put(commonActions.showLoader());

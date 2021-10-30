@@ -1,6 +1,5 @@
 ﻿import { Character } from '../../models/Character.model';
 import { Episode } from '../../models/Episode.model';
-import { Location } from '../../models/Location.model';
 import * as actionTypes from '../actions/rickAndMortyActionTypes';
 
 export interface State {

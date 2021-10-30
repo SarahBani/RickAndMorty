@@ -8,10 +8,10 @@ import 'bootstrap';
 
 import '../custom.scss'
 import { Navigation } from './UI/Navigation/Navigation';
-import { Home } from './Home/Home';
+import Home from './Home/Home';
 import { About } from './About/About';
 import { NotFound } from './NotFound/NotFound';
-import { CharacterProfile } from './Characters/CharacterProfile/CharacterProfile';
+import CharacterProfile from './Characters/CharacterProfile/CharacterProfile';
 import { Footer } from './Footer/Footer';
 import Layout from '../hoc/Layout/Layout';
 import * as commonActions from '../store/actions/commonActions';
