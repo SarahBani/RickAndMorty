@@ -1,5 +1,5 @@
  <img src='https://github.com/SarahBani/RickAndMorty/blob/main/public/logo.png' alt="logo" />
- 
+
  <p>
 	<b>
 		This project is implemented in the following technologies and frameworks:
@@ -16,3 +16,9 @@
 	<li><em>Sass / SCSS</em></li>
 	<li><em>Bootstrap 5.1.3</em></li>
 </ul>
+
+<p>	
+	<b>Caution</b>
+	<br />
+	Please run ‘npm install’ in order to download all dependencies required for executing the project.
+</p>
