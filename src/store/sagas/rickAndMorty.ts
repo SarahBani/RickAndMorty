@@ -36,7 +36,7 @@ export function* fetchCharactersSaga(payload: ReturnType<typeof actions.fetchCha
 export function* fetchCharacterSaga(payload: ReturnType<typeof actions.fetchCharacter>) {
     yield put(commonActions.showLoader());    
     try {
-        const response: ResponseGenerator = yield axiosInstance.get('/character2/' + payload.id,
+        const response: ResponseGenerator = yield axiosInstance.get('/character/' + payload.id,
         {
             headers: getHeaders()
         });
