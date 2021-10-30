@@ -1,61 +1,32 @@
 import * as React from 'react';
-import { Fragment, useState, useEffect, useCallback, FC } from 'react';
+import { Fragment, useCallback, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Modal from '../../components/UI/Modal/Modal';
-import useHttpErrorHandler from '../../hooks/http-error-handler';
 import * as actions from '../../store/actions/commonActions';
 import { ModalTypeEnum } from '../../shared/enums';
 import { AppState } from '../../store';
-import axiosInstance from '../../shared/axios-instance';
 
 interface StoreProps {
-    customError: string
+    error: string
 };
 
 const withErrorHandler = (WrappedComponent: FC<any>) => {
 
     return (props: any) => {
 
-        const { customError }: StoreProps = useSelector((state: AppState) => ({
-            customError: state.common.error
+        const { error }: StoreProps = useSelector((state: AppState) => ({
+            error: state.common.error
         }));
         const dispatch = useDispatch();
-        const [error, setError] = useState<string | null>();
-        const [errorType, setErrorType] = useState<ModalTypeEnum>();
-        const [axiosError, axiosClearErrorHandler] = useHttpErrorHandler(axiosInstance);
-
-        useEffect(() => {
-            //cleanup function:
-            return () => {
-                setError(null);
-            }
-        }, [setError]);
-
-        useEffect(() => {
-            if (axiosError) {
-                setError(axiosError);
-                setErrorType(ModalTypeEnum.Error);
-            }
-            else if (customError) {
-                setError(customError);
-                setErrorType(ModalTypeEnum.Warning);
-            }
-            else {
-                setError(null);
-            }
-        }, [axiosError, customError, setError, setErrorType]);
 
         const onHideErrorHandler = useCallback(() => {
-            if (axiosError) {
-                axiosClearErrorHandler();
-            }
             dispatch(actions.clearError());
-        }, [axiosError, axiosClearErrorHandler, dispatch]);
+        }, [dispatch]);
 
         return (
             <Fragment>
-                <Modal type={errorType as ModalTypeEnum} isShown={!!error} onHide={onHideErrorHandler} >
+                <Modal type={ModalTypeEnum.Warning} isShown={!!error} onHide={onHideErrorHandler} >
                     {error}
                 </Modal>
                 <WrappedComponent {...props} />

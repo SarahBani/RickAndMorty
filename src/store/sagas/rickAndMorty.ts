@@ -40,11 +40,15 @@ export function* fetchCharacterSaga(payload: ReturnType<typeof actions.fetchChar
             headers: getHeaders()
         });
         if (response?.status === 200) {
-            const character: Character = response.data;            
-            const origin: Location = yield call(fetchLocationSaga, character.origin.url);
-            const location: Location = yield call(fetchLocationSaga, character.location.url);
-            character.origin = origin;
-            character.location = location;
+            const character: Character = response.data;        
+            if (character.origin) {
+                const origin: Location = yield call(fetchLocationSaga, character.origin.url);
+                character.origin = origin;
+            }   
+            if (character.location) {
+                const location: Location = yield call(fetchLocationSaga, character.location.url);
+                character.location = location;
+            }
             yield put(actions.setCharacter(character));
             
             // response = yield axiosInstance.get('/character/' + payload.id,

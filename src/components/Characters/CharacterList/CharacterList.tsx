@@ -40,7 +40,7 @@ export const CharacterList: FC = () => {
         if (episodes.length === 0) {
             dispatch(actions.fetchEpisodes());
         }   
-    }, [episodes, dispatch]);
+    }, [dispatch]);
 
     useEffect(() => {
         dispatch(actions.fetchCharacters(pageNo));

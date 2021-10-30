@@ -42,15 +42,23 @@ const CharacterProfile: FC = () => {
         if (episodes.length === 0) {
             dispatch(actions.fetchEpisodes());
         } 
-    }, [episodes, dispatch]);
+    }, [dispatch]);
 
     useEffect(() => {
         dispatch(actions.fetchCharacter(id));
     }, [id, dispatch]);
 
-    const getLocationContent = useCallback((location: Location) => 
-        `${location.name} - ${location.dimension} - ${location.residentsCount} Residents`
-    , []);
+    const getLocationContent = useCallback((location: Location) => {
+        if (location && (location.name || location.dimension || location.residentsCount)) {
+            const locationName: string = location.name ?? 'Not specified';
+            const locationDimension: string = location.dimension ?? 'Not specified';
+            const locationResidentsCount: string = location.residentsCount?.toString() ?? 'Not specified';
+            return `${locationName} - ${locationDimension} - ${locationResidentsCount} Residents`
+        }
+        else {
+            return 'Not specified';
+        }
+    }, []);
 
     const originContent = useMemo(() => {
         if (character) {
