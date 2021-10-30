@@ -5,6 +5,7 @@ import { Redirect, useParams } from 'react-router-dom';
 
 import classes from './CharacterProfile.module.scss';
 import * as actions from '../../../store/actions/rickAndMortyActions';
+import * as commonActions from '../../../store/actions/commonActions';
 import { AppState } from '../../../store';
 import { Character } from "../../../models/Character.model";
 import { Location } from "../../../models/Location.model";
@@ -31,17 +32,21 @@ const CharacterProfile: FC = () => {
     const [redirect, setRedirect] = useState<ReactElement>();
 
     useEffect(() => {
-        if (episodes.length === 0) {
-            dispatch(actions.fetchEpisodes());
-        }
         return () => { // cleanup
             dispatch(actions.clearSelectedCharacter());  
+            dispatch(commonActions.resetLoader());  
         }      
-    }, []);
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (episodes.length === 0) {
+            dispatch(actions.fetchEpisodes());
+        } 
+    }, [episodes, dispatch]);
 
     useEffect(() => {
         dispatch(actions.fetchCharacter(id));
-    }, [id]);
+    }, [id, dispatch]);
 
     const getLocationContent = useCallback((location: Location) => 
         `${location.name} - ${location.dimension} - ${location.residentsCount} Residents`
@@ -51,13 +56,13 @@ const CharacterProfile: FC = () => {
         if (character) {
             return getLocationContent(character!.origin);
         }
-   }, [character]);
+   }, [character, getLocationContent]);
 
    const locationContent = useMemo(() => {
        if (character) {
            return getLocationContent(character!.location);
        }
-    }, [character]);   
+    }, [character, getLocationContent]);   
 
     const episodeNames = useMemo(() => {
         if (!!character && episodes.length > 0) {

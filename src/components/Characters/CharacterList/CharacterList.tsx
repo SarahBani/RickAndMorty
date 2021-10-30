@@ -1,10 +1,10 @@
 import * as React from "react";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
-import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { AppState } from "../../../store";
 import * as actions from '../../../store/actions/rickAndMortyActions';
+import * as commonActions from '../../../store/actions/commonActions';
 import { Character } from "../../../models/Character.model";
 import { CharacterItem } from "../CharacterItem/CharacterItem";
 import { NoCharacter } from "../NoCharacter/NoCharacter";
@@ -31,16 +31,20 @@ export const CharacterList: FC = () => {
     const [pageNo, setPageNo] = useState(1);
 
     useEffect(() => {
-        if (episodes.length === 0) {
-            dispatch(actions.fetchEpisodes());
-        }
-    }, []);
+        return () => { // cleanup
+            dispatch(commonActions.resetLoader());  
+        }    
+    }, [dispatch]);
 
     useEffect(() => {
-        if (characters.length === 0) {
-            dispatch(actions.fetchCharacters(pageNo));
-        }
-    }, [pageNo]);
+        if (episodes.length === 0) {
+            dispatch(actions.fetchEpisodes());
+        }   
+    }, [episodes, dispatch]);
+
+    useEffect(() => {
+        dispatch(actions.fetchCharacters(pageNo));
+    }, [pageNo, dispatch]);
     
     const changePageHandler = useCallback((no: number) => {
         setPageNo(no);
@@ -57,7 +61,7 @@ export const CharacterList: FC = () => {
                 <CharacterItem key={character.id} character={character} 
                     lastSeenEpisodeName={getFirstEpisodeName(character)} />);
         }
-    }, [characters, episodes]);
+    }, [characters, episodes, getFirstEpisodeName]);
 
     const listfooterContent = useMemo(() => (
         <ListFooter listCount={count} pageNo={pageNo} pagesCount={pagesCount} 

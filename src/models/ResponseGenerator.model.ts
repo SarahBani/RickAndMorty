@@ -1,4 +1,4 @@
-﻿export interface ResponseGenerator {
+export interface ResponseGenerator {
     config?: any,
     data?: any,
     headers?: any,

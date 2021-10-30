@@ -1,4 +1,4 @@
-﻿import { ActionPattern, put, take, call, all } from 'redux-saga/effects';
+import { put, call } from 'redux-saga/effects';
 
 import * as actions from '../actions/rickAndMortyActions';
 import * as commonActions from '../actions/commonActions';
@@ -9,7 +9,6 @@ import { ResponseData } from '../../models/ResponseData.model';
 import { Character } from '../../models/Character.model';
 import { Location } from '../../models/Location.model';
 import { Episode } from '../../models/Episode.model';
-import { AxiosResponse } from 'axios';
 
 export function* fetchCharactersSaga(payload: ReturnType<typeof actions.fetchCharacters>) {
     yield put(commonActions.showLoader());
@@ -76,7 +75,7 @@ function* fetchLocationSaga(url: string)
     });
     if (response?.status === 200) {
         const location = response.data;
-        location.residentsCount = response.data.residents.length;
+        location.residentsCount = response.data.residents?.length ?? 0;
         return location;
     }
     return null;

@@ -1,4 +1,4 @@
-﻿import * as actionTypes from './rickAndMortyActionTypes';
+import * as actionTypes from './rickAndMortyActionTypes';
 import { Character } from '../../models/Character.model';
 import { Episode } from '../../models/Episode.model';
 

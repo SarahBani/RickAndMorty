@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import { useMemo, Fragment, memo, FC } from 'react';
 
 import * as classes from './Pagination.module.scss';
@@ -30,7 +30,7 @@ const Pagination: FC<Props> = memo(({ pageNo, pagesCount, onChange }) => {
                 </Fragment>
             );
         }
-    }, [pageNo]);
+    }, [pageNo, pagesCount, onChange]);
 
     const currentPage = useMemo(() => (
         <li className={classes.ActiveLink}>
@@ -57,7 +57,7 @@ const Pagination: FC<Props> = memo(({ pageNo, pagesCount, onChange }) => {
                 </Fragment>
             );
         }
-    }, [pageNo, pagesCount]);
+    }, [pageNo, pagesCount, onChange]);
 
     return (
         <ul className={[classes.Pagination, "pagination"].join(' ')}>

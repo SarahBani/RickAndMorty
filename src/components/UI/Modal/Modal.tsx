@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import { FC, Fragment, memo, MouseEventHandler, ReactElement, ReactNode, useEffect, useReducer } from 'react';
 
 import * as classes from './Modal.module.scss';

@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import { memo, FC } from 'react';
 
 import * as classes from './ListFooter.module.scss';

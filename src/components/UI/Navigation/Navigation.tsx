@@ -1,6 +1,6 @@
-﻿import * as React from "react";
+import * as React from "react";
 import { FC } from "react";
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import * as classes from './Navigation.module.scss';
 
@@ -8,7 +8,7 @@ export const Navigation: FC = () => (
     <nav className={classes.Navigation}>
         <ul>
             <li>
-                <a href='https://rickandmortyapi.com/' target="_blank">
+                <a href='https://rickandmortyapi.com/' target="_blank" rel="noreferrer">
                     <img src='/logo.png' alt="logo" />
                 </a>
             </li>

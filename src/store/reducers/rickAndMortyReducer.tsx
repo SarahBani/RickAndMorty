@@ -1,4 +1,4 @@
-﻿import { Character } from '../../models/Character.model';
+import { Character } from '../../models/Character.model';
 import { Episode } from '../../models/Episode.model';
 import * as actionTypes from '../actions/rickAndMortyActionTypes';
 

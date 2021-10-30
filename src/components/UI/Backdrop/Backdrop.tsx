@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import { FC, MouseEventHandler, ReactNode } from 'react';
 
 import * as classes from './Backdrop.module.scss';

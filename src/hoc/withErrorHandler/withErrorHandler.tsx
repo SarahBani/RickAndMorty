@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import { Fragment, useState, useEffect, useCallback, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -26,6 +26,13 @@ const withErrorHandler = (WrappedComponent: FC<any>) => {
         const [axiosError, axiosClearErrorHandler] = useHttpErrorHandler(axiosInstance);
 
         useEffect(() => {
+            //cleanup function:
+            return () => {
+                setError(null);
+            }
+        }, [setError]);
+
+        useEffect(() => {
             if (axiosError) {
                 setError(axiosError);
                 setErrorType(ModalTypeEnum.Error);
@@ -37,18 +44,14 @@ const withErrorHandler = (WrappedComponent: FC<any>) => {
             else {
                 setError(null);
             }
-            //cleanup function:
-            return () => {
-                setError(null);
-            }
-        }, [axiosError, customError, setError]);
+        }, [axiosError, customError, setError, setErrorType]);
 
         const onHideErrorHandler = useCallback(() => {
             if (axiosError) {
                 axiosClearErrorHandler();
             }
             dispatch(actions.clearError());
-        }, [axiosError, axiosClearErrorHandler]);
+        }, [axiosError, axiosClearErrorHandler, dispatch]);
 
         return (
             <Fragment>
@@ -62,4 +65,5 @@ const withErrorHandler = (WrappedComponent: FC<any>) => {
     };
 };
 
-export default (WrappedComponent: FC<any>) => withErrorHandler(WrappedComponent);
+const withErrorHandlerWrapper = (WrappedComponent: FC<any>) => withErrorHandler(WrappedComponent);
+export default withErrorHandlerWrapper;

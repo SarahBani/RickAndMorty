@@ -1,4 +1,4 @@
-﻿import { createBrowserHistory, History } from 'history';
+import { createBrowserHistory, History } from 'history';
 
 // Create browser history to use in the Redux store
 // var baseLocation: URL = new URL(document.baseURI);

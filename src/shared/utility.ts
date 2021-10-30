@@ -1,5 +1,3 @@
-﻿import { FormEvent } from "react";
-
 import * as Constants from "./constants";
 import { HttpErrorEnum } from "./enums";
 

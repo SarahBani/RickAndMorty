@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import * as classes from './CharacterItem.module.scss';
 import { Character } from '../../../models/Character.model';
-import * as Constants from '../../../shared/constants';
 
 interface Props {
     character: Character,
@@ -15,7 +14,7 @@ export const CharacterItem: FC<Props> = ({ character, lastSeenEpisodeName }) => 
     return (    
         <div className={["col-12","col-lg-6", classes.CharacterItem].join(' ')}>
             <article>
-                <img src={character.image} className="img-response" />
+                <img src={character.image} className="img-response" alt={character.name} />
                 <section>
                     <div>
                         <h2>

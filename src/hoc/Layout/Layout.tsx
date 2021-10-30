@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { AppState } from '../../store';
@@ -11,16 +10,11 @@ interface StoreProps {
     loading: boolean
 };
 
-export default (props: { children?: React.ReactNode }) => {
+const Layout = (props: { children?: React.ReactNode }) => {
 
     const { loading }: StoreProps = useSelector((state: AppState) => ({
         loading: state.common.isLoading
-    }));
-
-    const [isSideDrawerVisible, setIsSideDrawerVisible] = useState<boolean>(false);
-    const toggleSideDrawerHandler = () => {
-        setIsSideDrawerVisible(prevIsSideDrawerVisible => !prevIsSideDrawerVisible);
-    };
+    })); 
 
     return (
         <div>
@@ -33,3 +27,5 @@ export default (props: { children?: React.ReactNode }) => {
         </div>
     );
 };
+
+export default Layout;

@@ -1,4 +1,4 @@
-﻿import * as actionTypes from './commonActionTypes';
+import * as actionTypes from './commonActionTypes';
 import * as Constants from '../../shared/constants';
 
 const unknownError = {

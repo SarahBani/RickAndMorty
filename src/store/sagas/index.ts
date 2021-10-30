@@ -1,4 +1,4 @@
-﻿import { all, takeLatest, cancel, take, fork } from 'redux-saga/effects';
+import { all, takeLatest } from 'redux-saga/effects';
 
 import { fetchCharactersSaga, fetchCharacterSaga, fetchEpisodesSaga } from './rickAndMorty';
 import * as rickAndMortyActionTypes from '../actions/rickAndMortyActionTypes';
@@ -9,8 +9,4 @@ export function* watchRickAndMorty() {
         takeLatest(rickAndMortyActionTypes.FETCH_CHARACTER, fetchCharacterSaga),
         takeLatest(rickAndMortyActionTypes.FETCH_EPISODES, fetchEpisodesSaga),
     ]);
-}
-
-function* cancelWorkerSaga(task: any) {
-    yield cancel(task);
 }

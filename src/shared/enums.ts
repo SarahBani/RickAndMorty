@@ -1,4 +1,4 @@
-﻿export enum ModalTypeEnum {
+export enum ModalTypeEnum {
     Info,
     Question,
     Warning,

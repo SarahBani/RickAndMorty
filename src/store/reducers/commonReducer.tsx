@@ -1,4 +1,4 @@
-﻿import * as actionTypes from '../actions/commonActionTypes';
+import * as actionTypes from '../actions/commonActionTypes';
 
 export interface State {
     isLoading: boolean,
@@ -28,8 +28,6 @@ const commonReducer = (state: State = initialState, action: any) => {
                 error: null
             };
         case actionTypes.HIDE_LOADER:
-            console.warn('hide loaderrrrrrr');
-            console.warn(state.loaderCount);
             return {
                 ...state,
                 isLoading: (state.loaderCount > 1),
