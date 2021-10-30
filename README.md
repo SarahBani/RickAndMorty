@@ -12,7 +12,9 @@
 	<li><em>Redux for State Management</em></li>
 	<li><em>Redux-Saga a middleware library for efficiently handling asynchronous side effects</em></li>
 	<li><em>JavaScript / ES6</em></li>
+	<li><em>TypeScript</em></li>
 	<li><em>HTML 5</em></li>
+	<li><em>CSS 3</em></li>
 	<li><em>Sass / SCSS</em></li>
 	<li><em>Bootstrap 5.1.3</em></li>
 </ul>
