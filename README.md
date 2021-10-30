@@ -1,3 +1,5 @@
+ <img src='https://github.com/SarahBani/RickAndMorty/blob/main/public/logo.png' alt="logo" />
+ 
  <p>
 	<b>
 		This project is implemented in the following technologies and frameworks:
